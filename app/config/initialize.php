@@ -10,7 +10,7 @@ defined('DS') ? null : define('DS', DIRECTORY_SEPARATOR);
 // C:\wamp64\www
 
 defined('SITE_ROOT') ? null : 
-	define('SITE_ROOT', 'C:'.DS.'wamp64'.DS.'www'.DS.'photogallery');
+	define('SITE_ROOT', 'C:'.DS.'wamp64'.DS.'www'.DS.'SparFlick');
 
 defined('LIB_PATH') ? null : define('LIB_PATH', SITE_ROOT.DS.'includes');
 
