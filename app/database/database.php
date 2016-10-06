@@ -1,6 +1,6 @@
 <?php
 
-require_once(LIB_PATH.DS."config.php");
+require_once(SITE_ROOT.DS.'app'.DS.'config'.DS.'config.php');
 
 /*
  * Class which provides abstraction to work with MySQL database
