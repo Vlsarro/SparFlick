@@ -1,6 +1,6 @@
-<?php require_once("../includes/initialize.php"); ?>
+<?php require_once("../app/config/initialize.php"); ?>
 <?php
-
+	// TODO: make it list_photos function
 	// 1. the current page number ($current_page)
 	$page = !empty($_GET['page']) ? (int)$_GET['page'] : 1;
 
