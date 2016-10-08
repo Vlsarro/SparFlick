@@ -1,5 +1,5 @@
-<?php require_once("../../includes/initialize.php"); ?>
-<?php if (!$session->is_logged_in()) { redirect_to("login.php"); } ?>
+<?php require_once("../../config/initialize.php"); ?>
+<?php if (!$session->is_logged_in()) { redirect_to("../../../public/admin/index.php"); } ?>
 <?php
 
   $logfile = SITE_ROOT.DS.'logs'.DS.'log.txt';
@@ -8,15 +8,15 @@
 		file_put_contents($logfile, '');
 	  // Add the first log entry
 	  log_action('Logs Cleared', "by User ID {$session->user_id}");
-    // redirect to this same page so that the URL won't 
-    // have "clear=true" anymore
-    redirect_to('logfile.php');
+        // redirect to this same page so that the URL won't
+        // have "clear=true" anymore
+        redirect_to('logfile.php');
   }
 ?>
 
 <?php include_layout_template('admin_header.php'); ?>
 
-<a href="index.php">&laquo; Back</a><br />
+<a href="../../../public/admin/index.php">&laquo; Back</a><br />
 <br />
 
 <h2>Log File</h2>
@@ -37,7 +37,7 @@
 		echo "</ul>";
     fclose($handle);
   } else {
-    echo "Could not read from {$logfile}.";
+        echo "Could not read from {$logfile}.";
   }
 
 ?>

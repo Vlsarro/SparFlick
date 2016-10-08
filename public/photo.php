@@ -1,4 +1,4 @@
-<?php require_once("../includes/initialize.php"); ?>
+<?php require_once("../app/config/initialize.php"); ?>
 <?php
 	// TODO: Get rid of that. Place this to controller of something
 

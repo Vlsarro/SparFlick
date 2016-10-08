@@ -1,8 +1,8 @@
 <?php
-require_once("../../includes/initialize.php");
+require_once("../../config/initialize.php");
 
 if($session->is_logged_in()) {
-  redirect_to("index.php");
+  redirect_to("../../../public/admin/index.php");
 }
 
 // Remember to give your form's submit tag a name="submit" attribute!
@@ -17,7 +17,7 @@ if (isset($_POST['submit'])) { // Form has been submitted.
   if ($found_user) {
     $session->login($found_user);
 		log_action('Login', "{$found_user->username} logged in.");
-    redirect_to("index.php");
+    redirect_to("../../../public/admin/index.php");
   } else {
     // username/password combo was not found in the database
     $message = "Username/password combination incorrect.";
@@ -29,8 +29,12 @@ if (isset($_POST['submit'])) { // Form has been submitted.
 }
 
 ?>
-<?php include_layout_template('admin_header.php'); ?>
-
+<?php
+	include_layout_template('admin_header.php');
+    // But from there you can't access css file. Need a proper templating system
+    // for now I'll just add a link to css file
+?>
+    <link href="../../../public/stylesheets/main.css" media="all" rel="stylesheet" type="text/css" />
 		<h2>Staff Login</h2>
 		<?php echo output_message($message); ?>
 

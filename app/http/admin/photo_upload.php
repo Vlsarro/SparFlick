@@ -1,5 +1,5 @@
 <?php
-require_once('../../includes/initialize.php');
+require_once("../../config/initialize.php");
 if (!$session->is_logged_in()) { redirect_to("login.php"); }
 ?>
 <?php
@@ -16,10 +16,10 @@ if (!$session->is_logged_in()) { redirect_to("login.php"); }
 		if($photo->save()) {
 			// Success
       $session->message("Photograph uploaded successfully.");
-			redirect_to('list_photos.php');
+			redirect_to("../../public/admin/list_photos.php");
 		} else {
 			// Failure
-      $message = join("<br />", $photo->errors);
+      		$message = join("<br />", $photo->errors);
 		}
 	}
 	

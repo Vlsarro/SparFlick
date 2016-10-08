@@ -19,16 +19,16 @@ class Comment extends DatabaseObject {
 
     // "new" is a reserved word so we use "make" (or "build")
 	public static function make($photo_id, $author="Anonymous", $body="") {
-    if(!empty($photo_id) && !empty($author) && !empty($body)) {
-        $comment = new Comment();
-	    $comment->photograph_id = (int)$photo_id;
-	    $comment->created = strftime("%Y-%m-%d %H:%M:%S", time());
-	    $comment->author = $author;
-	    $comment->body = $body;
-	    return $comment;
-		} else {
-			return false;
-		}
+        if(!empty($photo_id) && !empty($author) && !empty($body)) {
+            $comment = new Comment();
+	        $comment->photograph_id = (int)$photo_id;
+	        $comment->created = strftime("%Y-%m-%d %H:%M:%S", time());
+	        $comment->author = $author;
+	        $comment->body = $body;
+	        return $comment;
+        } else {
+			    return false;
+        }
 	}
 	
 	public static function find_comments_on($photo_id=0) {
