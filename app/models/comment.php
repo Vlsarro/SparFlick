@@ -27,7 +27,7 @@ class Comment extends DatabaseObject {
 	        $comment->body = $body;
 	        return $comment;
         } else {
-			    return false;
+            return false;
         }
 	}
 	
@@ -121,15 +121,15 @@ EMAILBODY;
 	  return array_key_exists($attribute, $this->attributes());
 	}
 
-	protected function attributes() { 
-		// return an array of attribute names and their values
-	  $attributes = array();
-	  foreach(self::$db_fields as $field) {
-	    if(property_exists($this, $field)) {
-            $attributes[$field] = $this->$field;
+	protected function attributes() {
+        // return an array of attribute names and their values
+	    $attributes = array();
+	    foreach(self::$db_fields as $field) {
+	        if(property_exists($this, $field)) {
+                $attributes[$field] = $this->$field;
+	        }
 	    }
-	  }
-	  return $attributes;
+	    return $attributes;
 	}
 	
 	protected function sanitized_attributes() {
@@ -158,6 +158,9 @@ EMAILBODY;
 	    $sql .= ") VALUES ('";
 		$sql .= join("', '", array_values($attributes));
 		$sql .= "')";
+        print_r($attributes);
+        // there is a bug, no id is provided
+        echo "\nSQL syntax: [" . $sql . "]";
         if($database->query($sql)) {
             $this->id = $database->insert_id();
             return true;
@@ -180,6 +183,7 @@ EMAILBODY;
 		$sql = "UPDATE ".self::$table_name." SET ";
 		$sql .= join(", ", $attribute_pairs);
 		$sql .= " WHERE id=". $database->escape_value($this->id);
+        echo "Before update ";
 	    $database->query($sql);
 	    return ($database->affected_rows() == 1) ? true : false;
 	}

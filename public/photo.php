@@ -23,7 +23,7 @@
 			// No message needed; seeing the comment is proof enough.
 			
 			// Send email
-			$new_comment->try_to_send_notification();
+			// $new_comment->try_to_send_notification();
 			
 	    // Important!  You could just let the page render from here. 
 	    // But then if the page is reloaded, the form will try 
@@ -32,7 +32,7 @@
 	
 		} else {
 			// Failed
-	    $message = "There was an error that prevented the comment from being saved.";
+	        $message = "There was an error that prevented the comment from being saved.";
 		}
 	} else {
 		$author = "";
